@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Julian Brown <julian.brown@cpanel.net>
+Date: Fri, 5 Nov 2021 16:01:32 +0000
+Subject: [PATCH 12/12] Prevent kill_all_lockers() from crashing PHP
+
+---
+ ext/opcache/ZendAccelerator.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ext/opcache/ZendAccelerator.c b/ext/opcache/ZendAccelerator.c
+index a21c640..e9726c2 100644
+--- a/ext/opcache/ZendAccelerator.c
++++ b/ext/opcache/ZendAccelerator.c
+@@ -864,7 +864,7 @@ static inline void kill_all_lockers(struct flock *mem_usage_check)
+ 			/* errno is not ESRCH or we ran out of tries to kill the locker */
+ 			ZCSG(force_restart_time) = time(NULL); /* restore forced restart request */
+ 			/* cannot kill the locker, bail out with error */
+-			zend_accel_error_noreturn(ACCEL_LOG_ERROR, "Cannot kill process %d!", mem_usage_check->l_pid);
++			zend_accel_error(ACCEL_LOG_WARNING, "Cannot kill process %d!", mem_usage_check->l_pid);
+ 		}
+ 
+ 		mem_usage_check->l_type = F_WRLCK;
