@@ -513,8 +513,8 @@ Summary: A database access abstraction module for PHP applications
 Group: Development/Languages
 # All files licensed under PHP version 3.01
 License: PHP
-Requires: %{?scl_prefix}php-common = %{version}
-Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
+Requires: %{?scl_prefix}php-common = %{version}-%{release}
+Requires: %{?scl_prefix}php-cli = %{version}-%{release}
 # ABI/API check - Arch specific
 Provides: %{?scl_prefix}php-pdo-abi = %{pdover}%{isasuffix}
 Provides: %{?scl_prefix}php(pdo-abi) = %{pdover}%{isasuffix}
@@ -532,13 +532,13 @@ Summary: A module for PHP applications that use MySQL databases
 Group: Development/Languages
 # All files licensed under PHP version 3.01
 License: PHP
-Requires: ea-php-pdo >= %{version}-%{release}
+Requires: %{?scl_prefix}php-pdo = %{version}-%{release}
 Provides: %{?scl_prefix}php_database = %{version}-%{release}
 Provides: %{?scl_prefix}php-mysql = %{version}-%{release}
-Provides: %{?scl_prefix}php-mysql%{?_isa} = %{version}-%{release}
+Provides: %{?scl_prefix}php-mysql = %{version}-%{release}
 Provides: %{?scl_prefix}php-mysqli = %{version}-%{release}
-Provides: %{?scl_prefix}php-mysqli%{?_isa} = %{version}-%{release}
-Provides: %{?scl_prefix}php-pdo_mysql = %{version}-%{release}, %{?scl_prefix}php-pdo_mysql%{?_isa} = %{version}-%{release}
+Provides: %{?scl_prefix}php-mysqli = %{version}-%{release}
+Provides: %{?scl_prefix}php-pdo_mysql = %{version}-%{release}, %{?scl_prefix}php-pdo_mysql = %{version}-%{release}
 
 %description mysqlnd
 The %{?scl_prefix}php-mysqlnd package contains a dynamic shared object that will add
@@ -567,9 +567,9 @@ Summary: A PostgreSQL database module for PHP
 Group: Development/Languages
 # All files licensed under PHP version 3.01
 License: PHP
-Requires: ea-php-pdo >= %{version}-%{release}
+Requires: %{?scl_prefix}php-pdo = %{version}-%{release}
 Provides: %{?scl_prefix}php_database = %{version}-%{release}
-Provides: %{?scl_prefix}php-pdo_pgsql = %{version}-%{release}, %{?scl_prefix}php-pdo_pgsql%{?_isa} = %{version}-%{release}
+Provides: %{?scl_prefix}php-pdo_pgsql = %{version}-%{release}, %{?scl_prefix}php-pdo_pgsql = %{version}-%{release}
 
 BuildRequires: krb5-devel, postgresql-devel
 
@@ -613,9 +613,9 @@ Group: Development/Languages
 # All files licensed under PHP version 3.01, except
 # pdo_odbc is licensed under PHP version 3.0
 License: PHP
-Requires: ea-php-pdo >= %{version}-%{release}
+Requires: %{?scl_prefix}php-pdo = %{version}-%{release}
 Provides: %{?scl_prefix}php_database = %{version}-%{release}
-Provides: %{?scl_prefix}php-pdo_odbc = %{version}-%{release}, %{?scl_prefix}php-pdo_odbc%{?_isa} = %{version}-%{release}
+Provides: %{?scl_prefix}php-pdo_odbc = %{version}-%{release}, %{?scl_prefix}php-pdo_odbc = %{version}-%{release}
 BuildRequires: unixODBC-devel
 
 %description odbc
