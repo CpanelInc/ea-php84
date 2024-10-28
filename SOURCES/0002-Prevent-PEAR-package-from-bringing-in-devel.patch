@@ -1,0 +1,45 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Julian Brown <julian.brown@cpanel.net>
+Date: Fri, 5 Nov 2021 14:14:16 +0000
+Subject: [PATCH 02/12] Prevent PEAR package from bringing in devel
+
+---
+ scripts/phpize.in | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/scripts/phpize.in b/scripts/phpize.in
+index 7d9c1df..a6f64d4 100644
+--- a/scripts/phpize.in
++++ b/scripts/phpize.in
+@@ -166,6 +166,15 @@ phpize_autotools()
+   $PHP_AUTOHEADER || exit 1
+ }
+ 
++phpize_check_headers()
++{
++  if test ! -f $includedir/main/php.h; then
++    echo "Can't find PHP headers in $includedir"
++    echo "The php-devel package is required for use of this command."
++    exit 1
++  fi
++}
++
+ # Main script
+ 
+ case "$1" in
+@@ -184,12 +193,15 @@ case "$1" in
+ 
+   # Version
+   --version|-v)
++    phpize_check_headers
+     phpize_print_api_numbers
+     exit 0
+   ;;
+ 
+   # Default
+   *)
++     phpize_check_headers
++
+      phpize_check_configm4 0
+ 
+      phpize_check_build_files
