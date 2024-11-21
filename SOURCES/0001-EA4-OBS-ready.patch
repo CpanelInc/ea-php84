@@ -1,7 +1,7 @@
-From 36a33f3b37721c70360ddc66c19ded4138ac091b Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 4 Oct 2024 11:18:45 -0500
-Subject: [PATCH] EA4 OBS ready
+Subject: [PATCH 01/11] EA4 OBS ready
 
 ---
  build/php.m4       | 1 -
@@ -9,7 +9,7 @@ Subject: [PATCH] EA4 OBS ready
  2 files changed, 3 deletions(-)
 
 diff --git a/build/php.m4 b/build/php.m4
-index e45b22b7..40fd105a 100644
+index e45b22b..40fd105 100644
 --- a/build/php.m4
 +++ b/build/php.m4
 @@ -1889,7 +1889,6 @@ dnl
@@ -21,7 +21,7 @@ index e45b22b7..40fd105a 100644
    PHP_EVAL_LIBLINE([$LIBXML_LIBS], [$1])
    $2
 diff --git a/sapi/fpm/config.m4 b/sapi/fpm/config.m4
-index 4d4952ee..495309e2 100644
+index 4d4952e..495309e 100644
 --- a/sapi/fpm/config.m4
 +++ b/sapi/fpm/config.m4
 @@ -399,8 +399,6 @@ if test "$PHP_FPM" != "no"; then
@@ -33,6 +33,3 @@ index 4d4952ee..495309e2 100644
      AC_DEFINE([HAVE_SYSTEMD], [1],
        [Define to 1 if FPM has systemd integration.])
      PHP_FPM_SD_FILES="fpm/fpm_systemd.c"
--- 
-2.46.1
-
