@@ -844,7 +844,7 @@ inside them.
 %prep
 : Building %{name}-%{version}-%{release} with systemd=%{with_systemd} sqlite3=%{with_sqlite3} tidy=%{with_tidy} zip=%{with_zip}
 
-%setup -q -n php-php-src-9b15052
+%setup -q -n php-php-src
 
 %patch42 -p1 -b .systemdpackage
 %patch43 -p1 -b .phpize
