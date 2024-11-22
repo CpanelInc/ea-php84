@@ -113,7 +113,7 @@ URL:      http://www.php.net/
 
 %global litespeed_version 8.1
 
-Source0: php-%{version}.tar.gz
+Source0: php-%{version}.tar.bz2
 Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-%{litespeed_version}.tgz
 Source2: php.ini
 Source3: macros.php
