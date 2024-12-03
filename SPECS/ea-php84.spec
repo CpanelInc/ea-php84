@@ -100,7 +100,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.0
+Version:  8.4.1
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -113,7 +113,7 @@ URL:      http://www.php.net/
 
 %global litespeed_version 8.1
 
-Source0: php-%{version}.tar.gz
+Source0: php-%{version}.tar.bz2
 Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-%{litespeed_version}.tgz
 Source2: php.ini
 Source3: macros.php
@@ -844,7 +844,7 @@ inside them.
 %prep
 : Building %{name}-%{version}-%{release} with systemd=%{with_systemd} sqlite3=%{with_sqlite3} tidy=%{with_tidy} zip=%{with_zip}
 
-%setup -q -n php-php-src-9b15052
+%setup -q -n php-%{version}
 
 %patch42 -p1 -b .systemdpackage
 %patch43 -p1 -b .phpize
@@ -1574,6 +1574,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Nov 21 2024 Dan Muey <daniel.muey@webpros.com> - 8.4.1-1
+- EA-12579: Update ea-php84 from v8.4.0 to v8.4.1
+
 * Fri Oct 04 2024 Julian Brown <julian.brown@cpanel.net> - 8.4.0-1
 - ZC-12235: First build
 
