@@ -100,7 +100,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.6
+Version:  8.4.7
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -149,6 +149,10 @@ Patch404: 0012-Prevent-kill_all_lockers-from-crashing-PHP.patch
 
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8 devtoolset-8-gcc devtoolset-8-gcc-c++ kernel-devel
+%endif
+
+%if 0%{rhel} >= 10
+BuildRequires: langpacks-fonts-en
 %endif
 
 BuildRequires: ea-libxml2-devel
@@ -571,7 +575,13 @@ Requires: %{?scl_prefix}php-pdo = %{version}-%{release}
 Provides: %{?scl_prefix}php_database = %{version}-%{release}
 Provides: %{?scl_prefix}php-pdo_pgsql = %{version}-%{release}, %{?scl_prefix}php-pdo_pgsql = %{version}-%{release}
 
-BuildRequires: krb5-devel, postgresql-devel
+BuildRequires: krb5-devel
+
+%if 0%{?rhel} >= 10
+BuildRequires: postgresql-private-devel
+%else
+BuildRequires: postgresql-devel
+%endif
 
 %if 0%{?rhel} > 7
 # In C8 we use system openssl. See DESIGN.md in ea-openssl11 git repo for details
@@ -801,8 +811,14 @@ Group: System Environment/Libraries
 License: PHP
 Requires: %{?scl_prefix}php-common = %{version}
 Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
+
+%if 0%{?rhel} >= 10
+Requires: libicu
+BuildRequires: libicu-devel >= 50.1
+%else
 Requires: ea-libicu
 BuildRequires: ea-libicu-devel >= 50.1
+%endif
 
 %description intl
 The %{?scl_prefix}php-intl package contains a dynamic shared object that will add
@@ -1574,6 +1590,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu May 08 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.7-1
+- EA-12851: Update ea-php84 from v8.4.6 to v8.4.7
+
 * Thu Apr 10 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.6-1
 - EA-12808: Update ea-php84 from v8.4.5 to v8.4.6
 
