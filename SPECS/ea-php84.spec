@@ -100,7 +100,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.7
+Version:  8.4.8
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -330,7 +330,7 @@ the %{?scl_prefix}php package and the php-cli package.
 %package devel
 Group: Development/Libraries
 Summary: Files needed for building PHP extensions
-Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
+Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}, autoconf, automake
 %if %{with_pcre}
 Requires: pcre2-devel%{?_isa} >= 10.30
 %endif
@@ -1259,7 +1259,7 @@ install -m 755 -d $RPM_BUILD_ROOT%{_datadir}/php
 install -m 755 -d $RPM_BUILD_ROOT%{_sysconfdir}/php.d
 install -m 755 -d $RPM_BUILD_ROOT%{_localstatedir}/lib
 
-install -m 755 build-cgi/sapi/litespeed/php $RPM_BUILD_ROOT%{_bindir}/lsphp
+install -m 755 build-cgi/sapi/litespeed/lsphp $RPM_BUILD_ROOT%{_bindir}/lsphp
 
 # PHP-FPM stuff
 # Log
@@ -1590,6 +1590,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Jun 05 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.8-1
+- EA-12918: Update ea-php84 from v8.4.7 to v8.4.8
+
 * Thu May 08 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.7-1
 - EA-12851: Update ea-php84 from v8.4.6 to v8.4.7
 

@@ -22,7 +22,7 @@ install -m 644 $SOURCE2 $DEB_INSTALL_ROOT$_sysconfdir/php.ini
 install -m 755 -d $DEB_INSTALL_ROOT$_datadir/php
 install -m 755 -d $DEB_INSTALL_ROOT$_sysconfdir/php.d
 install -m 755 -d $DEB_INSTALL_ROOT$_localstatedir/lib
-install -m 755 build/sapi/litespeed/php $DEB_INSTALL_ROOT$_bindir/lsphp
+install -m 755 build/sapi/litespeed/lsphp $DEB_INSTALL_ROOT$_bindir/lsphp
 # PHP-FPM stuff
 # Log
 # we need to do the following to compensate for the way
@@ -212,7 +212,7 @@ install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-
 install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common-${pkg_php_version}/libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common/libmagic_LICENSE
 install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common-${pkg_php_version}/php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common/php.ini-development
 install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common-${pkg_php_version}/php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common/php.ini-production
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-mbstring-${pkg_php_version}/libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-mbstring/libmbfl_LICENSE 
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-mbstring-${pkg_php_version}/libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-mbstring/libmbfl_LICENSE
 install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/licenses/ea-php84-php-bcmath-${pkg_php_version}/libbcmath_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/licenses/ea-php84-php-bcmath/libbcmath_LICENSE
 install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common-8.2.0rc3/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php84/root/usr/share/doc/ea-php84-php-common/README.md
 
