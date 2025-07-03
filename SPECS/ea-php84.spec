@@ -100,7 +100,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.8
+Version:  8.4.10
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1590,6 +1590,13 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Jul 03 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.10-1
+- EA-12995: Update ea-php84 from v8.4.8 to v8.4.10
+- Fixed GHSA-hrwm-9436-5mv3 (pgsql extension does not check for errors during escaping). (CVE-2025-1735)
+- Fixed GHSA-453j-q27h-5p8x (NULL Pointer Dereference in PHP SOAP Extension via Large XML Namespace Prefix). (CVE-2025-6491)
+- Fixed GHSA-3cr5-j632-f35r (Null byte termination in hostnames). (CVE-2025-1220)
+
+
 * Thu Jun 05 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.8-1
 - EA-12918: Update ea-php84 from v8.4.7 to v8.4.8
 
