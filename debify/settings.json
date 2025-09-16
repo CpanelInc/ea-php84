@@ -57,8 +57,8 @@
     "add_to_requires": {
         "ea-php84-php-imap": [ "libc-client2007e" ],
         "ea-php84-php-dba": [ "libtokyocabinet9" ],
-        "ea-php84-php-odbc": [ "libodbc1" ],
-        "ea-php84-php-pdo": [ "libpq5" ],
+        "ea-php84-php-odbc": [ [ "libodbc1", "libodbc2" ] ],
+        "ea-php84-php-pdo": [ "libpq5", [ "libodbc1", "libodbc2" ] ],
         "ea-php84-php-pgsql": [ "libpq5" ],
         "ea-php84-php-pspell": [ "libaspell15" ],
         "ea-php84-php-snmp": [ "snmp-mibs-downloader" ],
