@@ -102,7 +102,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.4.12
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1590,6 +1590,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed Sep 10 2025 Dan Muey <daniel.muey@webpros.com> - 8.4.12-2
+- EA4-122: map u24 libodbc for PHP extension
+
 * Tue Sep 02 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.12-1
 - EA-13086: Update ea-php84 from v8.4.11 to v8.4.12
 
