@@ -102,7 +102,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.4.14
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -111,7 +111,7 @@ License:  PHP and Zend and BSD
 Group:    Development/Languages
 URL:      http://www.php.net/
 
-%global litespeed_version 8.1
+%global litespeed_version 8.3
 
 Source0: php-%{version}.tar.bz2
 Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-%{litespeed_version}.tgz
@@ -1090,6 +1090,11 @@ export LDFLAGS="-Wl,-rpath=/opt/cpanel/ea-brotli/lib"
 export LDFLAGS="$LDFLAGS -Wl,-rpath,/opt/cpanel/libargon2/lib64 -L/opt/cpanel/libargon2/lib64 -largon2"
 export ARGON2_CFLAGS=-I/opt/cpanel/libargon2/include
 
+export LDFLAGS="$LDFLAGS \
+    -Wl,--enable-new-dtags \
+    -Wl,-rpath,/opt/cpanel/ea-libxml2/lib \
+    -Wl,-rpath,/opt/cpanel/ea-libxml2/lib64"
+
 ln -sf ../configure
 %configure \
     --cache-file=../config.cache \
@@ -1590,6 +1595,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Nov 06 2025 Chris Castillo <chris.castillo@webpros.com> - 8.4.14-2
+- EA-13088: Update php-litespeed to 8.3
+
 * Tue Oct 28 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.4.14-1
 - EA-13231: Update ea-php84 from v8.4.13 to v8.4.14
 
