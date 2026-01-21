@@ -100,7 +100,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.16
+Version:  8.4.17
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1595,6 +1595,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed Jan 21 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.17-1
+- EA-13321: Update ea-php84 from v8.4.16 to v8.4.17
+
 * Thu Dec 18 2025 Dan Muey <daniel.muey@webpros.com> - 8.4.16-1
 - EA-13296: Update ea-php84 from v8.4.15 to v8.4.16
 - Fixed GHSA-8xr5-qppj-gvwj (PDO quoting result null deref). (CVE-2025-14180)
