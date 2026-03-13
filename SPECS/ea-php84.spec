@@ -114,7 +114,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.18
+Version:  8.4.19
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1621,6 +1621,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Mar 12 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.19-1
+- EA-13372: Update ea-php84 from v8.4.18 to v8.4.19
+
 * Thu Feb 12 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.18-1
 - EA-13343: Update ea-php84 from v8.4.17 to v8.4.18
 
