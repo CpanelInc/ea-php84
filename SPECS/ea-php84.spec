@@ -114,7 +114,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.20
+Version:  8.4.21
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1621,6 +1621,17 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu May 07 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.21-1
+- EA-13429: Update ea-php84 from v8.4.20 to v8.4.21
+- Fixed GHSA-7qg2-v9fj-4mwv (XSS within FPM status endpoint). (CVE-2026-6735)
+- Fixed GHSA-wm6j-2649-pv75 (Null pointer dereference in mb_ereg_search_init()). (CVE-2026-7259)
+- Fixed GHSA-w476-322c-wpvm (SQL injection via NUL bytes in PDO_Firebird). (CVE-2025-14179)
+- Fixed GHSA-85c2-q967-79q5 (Stale SOAP_GLOBAL ref_map pointer). (CVE-2026-6722)
+- Fixed GHSA-m33r-qmcv-p97q (Use-after-free in SOAP persistence session). (CVE-2026-7261)
+- Fixed GHSA-hmxp-6pc4-f3vv (Broken Apache map value NULL check in SOAP). (CVE-2026-7262)
+- Fixed GHSA-96wq-48vp-hh57 (Signed integer overflow of char array offset). (CVE-2026-7568)
+- Fixed GHSA-m8rr-4c36-8gq4 (Unsigned char handling in ctype.h functions). (CVE-2026-7258)
+
 * Fri Apr 24 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.4.20-2
 - EA4-260: Build for Ubuntu 26.04
 
