@@ -1621,6 +1621,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Fri May 08 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.4.21-2
+- EA4-260: Build for Ubuntu 26.04
+
 * Thu May 07 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.21-1
 - EA-13429: Update ea-php84 from v8.4.20 to v8.4.21
 - Fixed GHSA-7qg2-v9fj-4mwv (XSS within FPM status endpoint). (CVE-2026-6735)
@@ -1631,9 +1634,6 @@ fi
 - Fixed GHSA-hmxp-6pc4-f3vv (Broken Apache map value NULL check in SOAP). (CVE-2026-7262)
 - Fixed GHSA-96wq-48vp-hh57 (Signed integer overflow of char array offset). (CVE-2026-7568)
 - Fixed GHSA-m8rr-4c36-8gq4 (Unsigned char handling in ctype.h functions). (CVE-2026-7258)
-
-* Fri Apr 24 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.4.20-2
-- EA4-260: Build for Ubuntu 26.04
 
 * Fri Apr 10 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 8.4.20-1
 - EA-13403: Update ea-php84 from v8.4.19 to v8.4.20
