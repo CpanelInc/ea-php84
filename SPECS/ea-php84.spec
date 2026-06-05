@@ -114,9 +114,9 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.21
+Version:  8.4.22
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 2
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1621,6 +1621,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Fri Jun 05 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 8.4.22-1
+- EA-13455: Update ea-php84 from v8.4.21 to v8.4.22
+
 * Fri May 08 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.4.21-2
 - EA4-260: Build for Ubuntu 26.04
 
