@@ -114,7 +114,7 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.23
+Version:  8.4.24
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1621,6 +1621,13 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Jul 30 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.24-1
+- EA-13522: Update ea-php84 from v8.4.23 to v8.4.24
+- Fixed libgd vulnerability. (CVE-2026-9672; severity not yet assigned)
+- Fixed SQL injection via E'...' backslash breakout. (CVE-2026-17543; High, CVSS 4.0 8.1)
+- Fixed crash via recursive symlinks in Phar archives. (CVE-2026-7260; Medium, CVSS 4.0 5.4)
+- Fixed out-of-bounds write in bccomp(). (CVE-2026-17544; High, CVSS 4.0 8.1)
+
 * Sat Jul 04 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 8.4.23-1
 - EA-13484: Update ea-php84 from v8.4.22 to v8.4.23
 - Fixed bug GH-22187 (Memory corruption in openssl_encrypt with AES-WRAP-PAD). (CVE-2026-14355)
@@ -1723,4 +1730,3 @@ fi
 
 * Fri Oct 04 2024 Julian Brown <julian.brown@cpanel.net> - 8.4.0-1
 - ZC-12235: First build
-
