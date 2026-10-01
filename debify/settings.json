@@ -20,6 +20,7 @@
         "pkgconfig(libsodium)",
         "libsodium",
         "libavif",
+        "libavif-bin",
         "libavif-dev",
         "ea-re2c"
     ],
