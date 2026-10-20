@@ -114,9 +114,9 @@ BuildRequires: re2c
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.4.26
+Version:  8.4.27
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 2
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1627,6 +1627,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Tue Oct 20 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.27-1
+- EA-13608: Update ea-php84 from v8.4.26 to v8.4.27 (CVE-2026-109618, CVE-2026-109619)
+
 * Wed Sep 30 2026 Dan Muey <daniel.muey@webpros.com> - 8.4.26-2
 - EA4-334: Fixup avif deps to work with A9 EPEL conflict
 
