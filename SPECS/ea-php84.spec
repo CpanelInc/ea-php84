@@ -116,7 +116,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.4.27
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -186,15 +186,12 @@ BuildRequires: libstdc++-devel
 %if 0%{?rhel} > 7
 # In C8 we use system openssl. See DESIGN.md in ea-openssl11 git repo for details
 BuildRequires: openssl, openssl-devel
-Requires: openssl
 %else
 BuildRequires: ea-openssl11 >= %{ea_openssl_ver}, ea-openssl11-devel >= %{ea_openssl_ver}
-Requires: ea-openssl11 >= %{ea_openssl_ver}
 %endif
 
 # For Argon2 support
 BuildRequires: ea-libargon2-devel
-Requires: ea-libargon2
 BuildRequires: sqlite-devel >= 3.7.5
 BuildRequires: zlib-devel, smtpdaemon
 BuildRequires: libedit-devel
@@ -336,6 +333,14 @@ Provides: %{?scl_prefix}php-tokenizer = %{version}-%{release}, %{?scl_prefix}php
 Provides: %{?scl_prefix}php-zlib = %{version}-%{release}, %{?scl_prefix}php-zlib%{?_isa} = %{version}-%{release}
 %{!?scl:Obsoletes: php-openssl, php-pecl-json, php-json, php-pecl-phar, php-pecl-Fileinfo}
 %{?scl:Requires: %{scl}-runtime}
+# For Argon2 support (password_hash() in ext/standard)
+Requires: ea-libargon2
+# For the built-in openssl extension
+%if 0%{?rhel} > 7
+Requires: openssl
+%else
+Requires: ea-openssl11 >= %{ea_openssl_ver}
+%endif
 
 %description common
 The %{?scl_prefix}php-common package contains files used by both
@@ -1627,6 +1632,10 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Mon Nov 02 2026 Dan Muey <daniel.muey@webpros.com> - 8.4.27-2
+- EA4-361: Move argon dep to common so debs get it correctly
+- EA4-361: Move openssl dep to common so debs get it correctly
+
 * Tue Oct 20 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.4.27-1
 - EA-13608: Update ea-php84 from v8.4.26 to v8.4.27 (CVE-2026-109618, CVE-2026-109619)
 
